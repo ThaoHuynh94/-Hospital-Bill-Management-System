@@ -1,136 +1,117 @@
 # Hospital Bill Management System
 
-## Overview
-The **Hospital Bill Management System** is a C++ console-based application designed to simplify the management of patient accounts and billing processes in a hospital environment. It provides functionalities for managing patient details, calculating charges for surgeries and pharmacy items, and integrating insurance coverage to produce an accurate and detailed bill.
-
----
+## Project Description
+This Hospital Bill Management System is designed to assist hospitals in efficiently managing patient accounts, calculating bills, and handling charges for surgeries and medications. The system offers features like insurance coverage calculations, itemized charges, and patient details display. It ensures accurate and user-friendly management of hospital billing processes.
 
 ## Features
+- Create and process patient accounts with detailed information.
+- Calculate total hospital charges, including room charges, medications, and surgeries.
+- Incorporate insurance coverage for bill adjustments.
+- Validate user inputs for accuracy and reliability.
+- Display comprehensive hospital bill statements.
 
-1. **Patient Account Management**
-   - Collects and validates patient information such as name, gender, age, ID, admission/discharge dates, and daily room rates.
+## Requirements
+- C++17 or later
+- Standard Template Library (STL)
 
-2. **Surgery and Pharmacy Charges**
-   - Allows the user to choose from predefined surgery and pharmacy options.
-   - Calculates and adds charges to the patient account.
+## Usage
+To use the system, compile the provided code files and execute the program. Follow the on-screen menu to create and process patient accounts or exit the program.
 
-3. **Insurance Integration**
-   - Accounts for insurance coverage percentage in calculating the total payable amount.
-
-4. **Input Validation**
-   - Ensures that user inputs are valid, including string inputs, numerical ranges, and date formats (MM/DD/YYYY).
-
-5. **Billing Summary**
-   - Displays a detailed breakdown of patient charges, including itemized surgery and pharmacy charges.
-
----
-
-## How It Works
-
-### Menu Options
-1. **Create and Process Patient Account**: Collects patient details and calculates the total charges based on selected services.
-2. **Exit**: Closes the program.
-
-### Workflow
-1. Input patient information such as name, gender, age, ID, admission/discharge dates, and daily room rates.
-2. Select surgery and pharmacy options to add to the patient account.
-3. Calculate the final charges considering itemized costs and insurance coverage.
-4. Display the detailed bill summary.
-
----
-
-## Project Structure
-
-```plaintext
-Hospital Bill Management System/
-├── Charge.h
-├── PatientAccount.h
-├── PatientAccount.cpp
-├── Pharmacy.h
-├── Pharmacy.cpp
-├── Surgery.h
-├── Surgery.cpp
-├── main.cpp
+## Input and Output Example
+### Example Interaction
 ```
-
-### Main Components
-- **`Charge`**: Represents individual charges (description and amount).
-- **`PatientAccount`**: Manages patient details and aggregates all charges.
-- **`Pharmacy`**: Provides options for pharmacy items and calculates their charges.
-- **`Surgery`**: Provides options for surgery types and calculates their charges.
-
----
-
-## Input Validation
-The system validates user inputs for:
-- **String Fields**: Ensures non-empty inputs.
-- **Integer Fields**: Validates numerical ranges.
-- **Double Fields**: Validates numerical ranges for charges and rates.
-- **Date Fields**: Validates the format as `MM/DD/YYYY`.
-
----
-
-## Prerequisites
-- **C++ Compiler**: A C++17 or later compiler is recommended.
-- **Build Tools**: Tools such as `make` or an IDE (e.g., Visual Studio, CLion) to build the project.
-
----
-
-## Compilation and Execution
-
-### Using `g++`:
-1. Navigate to the project directory.
-2. Run the following command:
-   ```bash
-   g++ -std=c++17 -o HospitalBill main.cpp PatientAccount.cpp Pharmacy.cpp Surgery.cpp
-   ```
-3. Execute the program:
-   ```bash
-   ./HospitalBill
-   ```
-
----
-
-## Example Usage
-
-### Sample Menu
-```plaintext
 ========================================
            HOSPITAL BILL SYSTEM          
 ========================================
 1. Create and Process Patient Account
 2. Exit
-```
-
-### Input Example
-```plaintext
-Enter Patient Name: John Doe
+Enter your choice: 1
+Enter Patient Name: Hoang Tran
 Enter Patient Gender (Male/Female/Other): Male
-Enter Patient Age: 30
-Enter Patient ID: 12345
-Enter Admission Date (MM/DD/YYYY): 12/01/2024
-Enter Discharge Date (MM/DD/YYYY): 12/10/2024
-Enter Daily Rate ($): 500
-Enter Insurance Provider: BlueShield
-Enter Insurance Coverage Percentage: 80
+Enter Patient Age: 33
+Enter Patient ID: 1234
+Enter Admission Date (MM/DD/YYYY): 12/2/2024
+Invalid date format. Please enter in MM/DD/YYYY format.
+Enter Admission Date (MM/DD/YYYY): 12/02/2024
+Enter Discharge Date (MM/DD/YYYY): 12/30/2024
+Enter Daily Rate ($): 200
+Enter Insurance Provider: Kaiser
+Enter Insurance Coverage Percentage: 30
+Select Medication:
+1. Appendectomy - $5000
+2. Gallbladder Removal - $4500
+3. Knee Replacement - $7000
+4. Hip Replacement - $8000
+5. Cataract Surgery - $3000
+6. Heart Bypass Surgery - $12000
+7. Spinal Fusion Surgery - $11000
+8. Hysterectomy - $7500
+9. C-section - $4000
+10. Laparoscopic Surgery - $6000
+Enter your choice (1-10): 9
+Select Medication:
+1. Antibiotics - $200
+2. Painkillers - $150
+3. Antacids - $50
+4. Blood Thinners - $250
+5. Anti-inflammatory  - $100
+6. Insulin - $180
+7. Omeprazole - $350
+8. Steroids - $300
+9. Diuretics - $120
+10. Beta-blockers  - $220
+Enter your choice (1-10): 10
+=======================================================
+              HOSPITAL BILL STATEMENT         
+=======================================================
+
+Patient Information:
+------------------------------------------------------
+Name:               Hoang Tran
+Gender:             Male
+Age:                33
+Patient ID:         1234
+Admission Date:     Mon Dec 02 2024
+Discharge Date:     Mon Dec 30 2024
+Days Spent:         29
+Insurance Provider: Kaiser
+Insurance Coverage: 30%
+Daily Rate:         $200.00
+
+Hospital Charges:
+------------------------------------------------------
+- Pharmacy: Beta-blockers      $220.00
+- Surgery: C-section           $4000.00
+------------------------------------------------------
+Subtotal:                             $4220.00
+Room Charges (29 days):               $5800.00
+
+Tax Amount:                           $1077.15
+------------------------------------------------------
+Total Before Insurance:               $11097.15
+Insurance Coverage (30.00%):         -$3329.14
+------------------------------------------------------
+Total Amount Due:                     $7768.00
+
+=======================================================
+               THANK YOU FOR CHOOSING US         
+=======================================================
+
+========================================
+           HOSPITAL BILL SYSTEM          
+========================================
+1. Create and Process Patient Account
+2. Exit
+Enter your choice: 3
+Invalid input. Please enter a number between 1 and 2.
+Enter your choice: 2
+Exiting program. Thank you!
 ```
 
-### Output Example
-```plaintext
-Patient Details:
-Name: John Doe
-Gender: Male
-Age: 30
-Patient ID: 12345
-Admission Date: 12/01/2024
-Discharge Date: 12/10/2024
-Days Spent: 9
+## File Structure
+- **PatientAccount.h**: Handles patient details and bill calculations.
+- **Pharmacy.h**: Manages pharmacy charges.
+- **Surgery.h**: Manages surgery charges.
+- **Charge.h**: Represents individual charges with descriptions and amounts.
+- **main.cpp**: Contains the main program logic and user interface.
 
-Charges:
-1. Surgery: Appendectomy - $5000.00
-2. Pharmacy: Painkillers - $200.00
-
-Insurance Coverage: 80%
-Total Charges Before Insurance: $9800.00
-Total Payable Amount: $1960.00
-```
