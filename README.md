@@ -10,6 +10,12 @@ This Hospital Bill Management System is designed to assist hospitals in efficien
 - Validate user inputs for accuracy and reliability.
 - Display comprehensive hospital bill statements.
 
+## UML Diagram
+Here is the UML diagram for the Hospital Bill Management System:
+
+<img width="1032" alt="Untitled P1" src="https://github.com/user-attachments/assets/cedcdfc8-3896-433c-8c3a-f745b7b7e61c" />
+
+
 ## Requirements
 - C++17 or later
 - Standard Template Library (STL)
